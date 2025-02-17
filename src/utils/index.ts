@@ -17,7 +17,6 @@ export interface reply {
   type_id: 1 | 11 | 12 | 17
   ctime: number
   oid: string
-  dynamic_id: string
   origin_rpid: string
   similar_count: number
   similar_like_sum: number
@@ -63,7 +62,7 @@ function handleRelated (s: reply): Article {
     allLike: s.similar_like_sum,
     quote: s.similar_count,
     originId: s.origin_rpid,
-    url: parseURL(s.oid, s.dynamic_id, s.rpid, s.type_id),
+    url: parseURL(s.oid, s.rpid, s.type_id),
   }
 }
 
@@ -74,18 +73,20 @@ function handleRelated (s: reply): Article {
  * @param {Number} type comment type available: 1, 11, 17, 12
  * @returns {String} a bili comment link
  */
-function parseURL (oid: string, dynamic_id: string, rpid: string, type: number) {
+function parseURL (oid: string, rpid: string, type: number) {
   const VIDEO_URL = 'www.bilibili.com/video/av'
   const CV_URL = 'www.bilibili.com/read/cv'
   const DYNAMIC_URL = 't.bilibili.com/'
-  let baseURL = VIDEO_URL + oid
-  if (type == 11 || type == 17) {
-    baseURL = DYNAMIC_URL + dynamic_id
+  switch (type) {
+    case 11:
+      return `https://${DYNAMIC_URL}/${oid}?type=2#reply${rpid}`
+    case 17:
+      return `https://${DYNAMIC_URL}/${oid}#reply${rpid}`
+    case 12:
+      return `https://${CV_URL + oid}#reply${rpid}`
+    default:
+      return `https://${VIDEO_URL + oid}/#reply${rpid}`
   }
-  if (type == 12) {
-    baseURL = CV_URL + oid
-  }
-  return `https://${baseURL}/#reply${rpid}`
 }
 
 export {
