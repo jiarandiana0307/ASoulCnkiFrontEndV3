@@ -76,7 +76,7 @@ function handleRelated (s: reply): Article {
 function parseURL (oid: string, rpid: string, type: number) {
   const VIDEO_URL = 'www.bilibili.com/video/av'
   const CV_URL = 'www.bilibili.com/read/cv'
-  const DYNAMIC_URL = 't.bilibili.com/'
+  const DYNAMIC_URL = 't.bilibili.com'
   switch (type) {
     case 11:
       return `https://${DYNAMIC_URL}/${oid}?type=2#reply${rpid}`
