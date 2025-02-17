@@ -31,6 +31,8 @@ export const rankFilterArray: Array<RankFilter> = [
       { text: '嘉然', value: 672328094 },
       { text: '乃琳', value: 672342685 },
       { text: '官号', value: 703007996 },
+      { text: '心宜', value: 3537115310721181 },
+      { text: '思诺', value: 3537115310721781 },
     ],
     type: 'multi',
   },
