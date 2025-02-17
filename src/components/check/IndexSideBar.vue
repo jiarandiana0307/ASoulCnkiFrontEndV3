@@ -21,9 +21,6 @@
     </div>
     <MembersCarousel />
     <Links />
-    <p class="footer">
-      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">琼ICP备20001476号-2</a>
-    </p>
   </div>
 </template>
 
@@ -47,12 +44,6 @@ const eventLinks = [
     detail: '模仿阿草的语气生成QA，和阿草学习打太极。目前尚在测试阶段，欢迎反馈bug',
     path: '/qa',
     extraClassName: 'text-blue-600',
-  },
-  {
-    title: '📰 枝网年度报告',
-    detail: '2021年ASoul个人数据年度报告',
-    path: 'https://2021.asoulcnki.asia',
-    extraClassName: 'text-red-600',
   },
 ]
 </script>
