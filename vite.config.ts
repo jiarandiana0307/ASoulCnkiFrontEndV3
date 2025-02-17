@@ -92,7 +92,7 @@ export default defineConfig({
   ],
   server: {
     proxy: {
-      '/v1': 'https://asoulcnki.asia/v1',
+      '/v1': 'https://asoulcnki.cbu.net',
     },
   },
   resolve: {
